@@ -7,32 +7,31 @@ public class Main {
 	void run() {
 		Scanner sc = new Scanner(System.in);
 
+		// input
 		int n = sc.nextInt();
-		int[] seq = new int[n];
-
+		int[] seq = new int[n + 1];
 		for (int i = 0; i < n; i++) {
 			seq[i] = sc.nextInt();
 		}
+		// 番兵
+		seq[n] = -1;
 
-		int count = 0;
-		for (int i = 0; i < n; i++) {
-			for (int j = i; j < n; j++) {
-				for (int k = i; k <= j; k++) {
-					if (k == j) {
-						count++;
-						break;
-					}
-					if (seq[k] >= seq[k + 1]) {
-						break;
-					}
-					else {
-						continue;
-					}
-				}
+		int l = 0;
+		int r = 1;
+		int sum = 0;
+
+		while (l <= n) {
+			if (seq[r] < 0) {
+				break;
 			}
+			while (seq[r - 1] < seq[r]) {
+				r++;
+			}
+			sum += (r - l + 1);
+			l++;
 		}
 
-		System.out.println(count);
+		System.out.println(sum);
 
 	}
 

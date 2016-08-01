@@ -2,6 +2,7 @@ package problemC;
 
 import java.util.Scanner;
 
+
 //しゃく取り法
 //求めたいものは幅の最大値を求めたいので、本来の尺取りとは少し意味は違う。
 public class Main {
