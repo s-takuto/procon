@@ -18,8 +18,16 @@ public class Main {
 		Set<Integer> cset = new HashSet<Integer>();
 
 		for (int i = 0; i < m; i++) {
-			
+			int c = sc.nextInt();
+			int r = sc.nextInt();
+
+			rset.add(r);
+			cset.add(c);
+
+			long ans = (long) (n - rset.size()) * (n - cset.size());
+			System.out.print(ans + " ");
 		}
+		System.out.println();
 
 	}
 
