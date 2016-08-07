@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="CFR#354"/>
+	<classpathentry kind="src" path="CFR354"/>
 	<classpathentry kind="src" path="CFR355"/>
 	<classpathentry kind="src" path="CFR356"/>
 	<classpathentry kind="src" path="CFR357"/>
-	<classpathentry kind="src" path="CFR#351"/>
+	<classpathentry kind="src" path="CFR351"/>
 	<classpathentry kind="src" path="CFR360"/>
 	<classpathentry kind="src" path="CFR361"/>
 	<classpathentry kind="src" path="CFR362"/>
 	<classpathentry kind="src" path="CFR363"/>
 	<classpathentry kind="src" path="CFR364"/>
+	<classpathentry kind="src" path="ECFR15"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

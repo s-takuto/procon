@@ -1,4 +1,4 @@
-package arc035A;
+package taskA035;
 
 import java.util.Scanner;
 
