@@ -18,7 +18,7 @@ public class Main {
 
 		int[] x = new int[n + 1];
 		x[0] = -1;
-		for (int i = 1; i < n; i++) {
+		for (int i = 1; i <= n; i++) {
 			x[i] = sc.nextInt();
 		}
 
@@ -26,42 +26,48 @@ public class Main {
 		for (int i = 0; i < n; i++) {
 			max = Math.max(max, x[i]);
 		}
-		int s = max * n;
+		int X = max * n;
 
-		// dp[i][j][k]:x0~xiまでj枚選んだ時の和がkになるような選び方の総数
-		double[][][] dp = new double[n + 1][n + 1][s + 1];
+		// dp[j][k][s]:x[1]~x[j]までk枚選んだ時の和がsになるような選び方の総数
+		// 0<=j<=n, 0<=k<=n, 0<=s<=X
+		long[][][] dp = new long[n + 1][n + 1][X + 1];
 
+		// 基底
 		dp[0][0][0] = 1;
 
-		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= n; j++) {
-				for (int k = 0; k <= s; k++) {
-					int count = 0;
-					if (k - x[i] >= 0) {
-						// x[i]を選ばない
-						count += dp[i - 1][j][k];
-						// x[i]を選ぶ
-						count += dp[i - 1][j - 1][k - x[i]];
-					} else if (k - x[i] < 0) {
-						// x[i]を選べない
-						count += dp[i - 1][j][k];
+		for (int j = 1; j <= n; j++) {
+			for (int k = 0; k <= n; k++) {
+				for (int s = 0; s <= X; s++) {
+					if (j == 0 && k == 0 && s == 0) {
+						continue;
 					}
-					dp[i][j][k] = count;
+					long count = 0;
+					if (s >= x[j] && k >= 1) {
+						// x[j]を選ばない
+						count += dp[j - 1][k][s];
+						// x[j]を選ぶ
+						count += dp[j - 1][k - 1][s - x[j]];
+					} else if (s < x[j]) {
+						// x[j]を選べない
+						count += dp[j - 1][k][s];
+					}
+					dp[j][k][s] = count;
 				}
 			}
 		}
 
 		// debug
-		for (int i = 0; i <= n; i++) {
-			for (int j = 0; j <= n; j++) {
-				System.out.println("i:" + i + " j:" + j);
-				System.out.println(Arrays.toString(dp[i][j]));
-			}
-		}
+		// for (int j = 0; j <= n; j++) {
+		// for (int k = 0; k <= n; k++) {
+		// System.out.println("j:" + j + " k:" + k);
+		// System.out.println(Arrays.toString(dp[j][k]));
+		// }
+		// }
 
-		int sum = 0;
-		for (int j = 1; j <= n; j++) {
-			sum += dp[n - 1][j][j * a];
+		// 和k*aとなる、1~n枚選んだ時の選び方の和を求める
+		long sum = 0;
+		for (int k = 1; k <= n; k++) {
+			sum += dp[n][k][k * a];
 		}
 
 		System.out.println(sum);
