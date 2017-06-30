@@ -2,7 +2,7 @@ package D;
 
 import java.util.Scanner;
 
-// 途中
+// コメントアウトした部分を採用するとaccept
 public class Main {
 	public static final long MOD = 1_000_000_000 + 7;
 
@@ -15,41 +15,40 @@ public class Main {
 		long[] x = new long[n];
 		long[] y = new long[m];
 
-		for(int i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) {
 			x[i] = sc.nextLong();
 		}
-		for(int i = 0; i < m; i++) {
+		for (int i = 0; i < m; i++) {
 			y[i] = sc.nextLong();
 		}
 
-		// process
-		long sum = 0;
-
-		long area = (x[n - 1] - x[0]) * (y[m - 1] - y[0]);
-		area %= MOD;
-
-		long times = (n - 1) * (m - 1);
-		times %= MOD;
-
-		for(int i = 0; i < times; i++) {
-			sum += area;
-			sum %= MOD;
+		long xsum = 0;
+		for (int i = 0; i < n; i++) {
+			//	long tmp = ((2 * i - n + 1) * x[i]) % MOD;
+			//	xsum += tmp;
+			//	xsum %= MOD;
+			long add = (i * x[i]) % MOD;
+			long subtract = ((n - i - 1) * x[i]) % MOD;
+			long sum = (add - subtract) % MOD;
+			xsum += sum;
+			xsum %= MOD;
 		}
 
-		//	for(int i = 0; i < n; i++) {
-		//		for(int j = i + 1; j < n; j++) {
-		//			for(int k = 0; k < m; k++) {
-		//				for(int l = k + 1; l < m; l++) {
-		//					long area = (x[j] - x[i]) * (y[l] - y[k]);
-		//					area %= MOD;
-		//					sum += area;
-		//					sum %= MOD;
-		//				}
-		//			}
-		//		}
-		//	} 
+		long ysum = 0;
+		for (int i = 0; i < m; i++) {
+			//	long tmp = ((2 * i - m + 1) * y[i]) % MOD;
+			//	ysum += tmp;
+			//	ysum %= MOD;
+			long add = (i * y[i]) % MOD;
+			long subtract = ((m - i - 1) * y[i]) % MOD;
+			long sum = (add - subtract) % MOD;
+			ysum += sum;
+			ysum %= MOD;
+		}
+
+		long ans = (xsum * ysum) % MOD;
 
 		// output
-		System.out.println(sum);
+		System.out.println(ans);
 	}
 }
