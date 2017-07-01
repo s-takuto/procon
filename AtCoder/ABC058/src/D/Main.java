@@ -2,7 +2,6 @@ package D;
 
 import java.util.Scanner;
 
-// コメントアウトした部分を採用するとaccept
 public class Main {
 	public static final long MOD = 1_000_000_000 + 7;
 
@@ -24,25 +23,15 @@ public class Main {
 
 		long xsum = 0;
 		for (int i = 0; i < n; i++) {
-			//	long tmp = ((2 * i - n + 1) * x[i]) % MOD;
-			//	xsum += tmp;
-			//	xsum %= MOD;
-			long add = (i * x[i]) % MOD;
-			long subtract = ((n - i - 1) * x[i]) % MOD;
-			long sum = (add - subtract) % MOD;
-			xsum += sum;
+			long tmp = ((2 * i - n + 1) * x[i]) % MOD;
+			xsum += tmp;
 			xsum %= MOD;
 		}
 
 		long ysum = 0;
 		for (int i = 0; i < m; i++) {
-			//	long tmp = ((2 * i - m + 1) * y[i]) % MOD;
-			//	ysum += tmp;
-			//	ysum %= MOD;
-			long add = (i * y[i]) % MOD;
-			long subtract = ((m - i - 1) * y[i]) % MOD;
-			long sum = (add - subtract) % MOD;
-			ysum += sum;
+			long tmp = ((2 * i - m + 1) * y[i]) % MOD;
+			ysum += tmp;
 			ysum %= MOD;
 		}
 
