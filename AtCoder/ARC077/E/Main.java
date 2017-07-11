@@ -10,11 +10,19 @@ public class Main {
 		int m = sc.nextInt();
 
 		int[] a = new int[n];
-		for(int i = 0; i < n; i++) {
+		for(int i = 1; i <= n; i++) {
 			a[i] = sc.nextInt();
 		}
 
-		int min = Integer.MAX_VALUE / 2;
+		long count = 0;
+		for(int i = 2; i <= n; i++) {
+			if(a[i] > a[i - 1]) {
+				sum += (a[i] - a[i - 1]):
+			} else {
+				sum += (m - a[i - 1] + a[i]);
+			}
+			sum += a[i];
+		}
 
 		for(int x = 1; x <= m; x++) {
 			int count = 0;
