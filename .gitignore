@@ -1,0 +1,5 @@
+# .DS_Storeなどは無視
+*.DS_Store
+
+# 実行ファイルは無視
+*a.out
