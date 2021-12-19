@@ -1,17 +1,20 @@
-#include <iostream>
-#include <algorithm>
-#include <climits>
-#include <vector>
-#include <utility>
-#include <functional>
-#include <map>
-#include <string>
-#include <set>
-#include <math.h>
+#include <bits/stdc++.h>
 
 using namespace std;
+using ll = long long;
+
+const string yes = "Yes";
+const string no = "No";
 
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+
+  // 入力
+
+  // 計算
+
+  // 出力
+
+  return 0;
 }
